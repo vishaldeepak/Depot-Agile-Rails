@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
 	# The aboce could be written as 
 	# validates(:title, :description, :image_url,:presence => true)
 	validates :price, numericality: {greater_than_or_equal_to: 0.01} #Makes sure that the field is a no
+	
+	validates :title, length: {minimum: 10, message: "Must give atleast 10 characters, Dear Sir!!"} 
 																	 #And greater than 0.01
 	validates :title, uniqueness: true; #Makes sure that this field is unique
 	validates :image_url, allow_blank: true, format: { #Makes sure we have a valid image file url
@@ -10,4 +12,7 @@ class Product < ActiveRecord::Base
     message: 'must be a URL for GIF, JPG or PNG image.'
   }#allow_blanck is given to avoid multiple error messages
 
+
+  def self.latest
+  	Product.order(:updated_at).last
 end
