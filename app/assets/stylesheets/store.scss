@@ -36,10 +36,14 @@
 
 		p, div.price_line{
 			margin: 0.5em 0 0.8em 100px;
+
+			form, div{
+				display: inline;
+			}
 		}
 
 		.price{
-			color: #44a;
+			color: #B40431;
 			font-weight: bold;
 			margin-right: 3em;
 		}

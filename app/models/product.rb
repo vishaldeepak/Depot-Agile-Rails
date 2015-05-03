@@ -1,4 +1,9 @@
 class Product < ActiveRecord::Base
+	has_many :lint_items
+
+	#This ensures that a product is not deleted if it has references by any line_item
+	before_destroy :ensure_not_referenced_by_any_lint_item
+
 	validates :title, :description, :image_url, presence: true # Makes sure that the fields are not empty
 	# The aboce could be written as 
 	# validates(:title, :description, :image_url,:presence => true)
@@ -15,5 +20,17 @@ class Product < ActiveRecord::Base
 
   def self.latest
   	Product.order(:updated_at).last
+  end
+
+  private
+
+  #This ensures that a product is not deleted if it has references by any line_item
+  def ensure_not_referenced_by_any_lint_item
+  	if lint_items.empty?
+  		return true
+  	else
+  		errors.add(:base,'Line items Present')
+  		return false
+  	end
   end
 end

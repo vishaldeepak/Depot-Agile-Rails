@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @lint_item.product %>
+</p>
+
+<p>
+  <strong>Cart:</strong>
+  <%= @lint_item.cart %>
+</p>
+
+<%= link_to 'Edit', edit_lint_item_path(@lint_item) %> |
+<%= link_to 'Back', lint_items_path %>

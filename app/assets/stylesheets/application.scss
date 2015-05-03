@@ -15,11 +15,11 @@
  */
 
  #banner{
- 	background: #81BEF7;
+ 	background: #9c9;
  	padding: 10px;
  	border-bottom: 2px solid black;
  	font: small-caps 40px/40px "Times New Roman", serif;
- 	color: #282;
+ 	color: #2E2E2E;
  	text-align: center;
 
  	img{
@@ -37,7 +37,7 @@
  }
 
  #columns{
- 	background: #5882FA;
+ 	background: #CEF6EC;
 
  	#main{
  		margin-left: 17em;
@@ -46,12 +46,12 @@
  	}
 
  	#side{
+ 		background: #CEF6EC;
  		float: left;
  		padding: 1em 2em;
  		width: 13em;
  		
- 		
-
+ 	
 
  		ul{
  			padding: 0;
@@ -62,8 +62,13 @@
  					color: #151515;
  					font-family: verdana;
  					font-size: large;
- 					
  					text-decoration: none;
+ 				}
+
+ 				a:hover{
+ 					color: #cc0000;
+ 					text-decoration: none;
+ 					background-color: transparent;
  				}
  			}
  		}
