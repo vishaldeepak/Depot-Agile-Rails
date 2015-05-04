@@ -27,12 +27,13 @@ class LintItemsController < ApplicationController
   # POST /lint_items.json
   def create
     product = Product.find(params[:product_id])
-    @lint_item = @cart.lint_items.build(product: product)
+    @lint_item = @cart.add_product(product.id)
+    session[:counter]=0
 
 
     respond_to do |format|
       if @lint_item.save
-        format.html { redirect_to @lint_item.cart, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @lint_item.cart}#notice was removed as we did not need it 
         format.json { render :show, status: :created, location: @lint_item }
       else
         format.html { render :new }
@@ -73,6 +74,6 @@ class LintItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lint_item_params
-      params.require(:lint_item).permit(:product_id, :cart_id)
+      params.require(:lint_item).permit(:product_id)
     end
 end

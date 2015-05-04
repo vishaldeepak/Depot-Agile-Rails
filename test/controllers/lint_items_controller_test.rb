@@ -35,7 +35,7 @@ class LintItemsControllerTest < ActionController::TestCase
   end
 
   test "should update lint_item" do
-    patch :update, id: @lint_item, lint_item: { cart_id: @lint_item.cart_id, product_id: @lint_item.product_id }
+    patch :update, id: @lint_item, lint_item: { product_id: @lint_item.product_id}
     assert_redirected_to lint_item_path(assigns(:lint_item))
   end
 
