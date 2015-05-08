@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 	has_many :lint_items
 
+
 	#This ensures that a product is not deleted if it has references by any line_item
 	before_destroy :ensure_not_referenced_by_any_lint_item
 
@@ -14,8 +15,10 @@ class Product < ActiveRecord::Base
 	validates :title, uniqueness: true; #Makes sure that this field is unique
 	validates :image_url, allow_blank: true, format: { #Makes sure we have a valid image file url
     with:    %r{\.(gif|jpg|png)\Z}i,
-    message: 'must be a URL for GIF, JPG or PNG image.'
+    message: 'must be a URL for GIF, JPG or PNG image.' 
   }#allow_blanck is given to avoid multiple error messages
+
+  validates :image_url, uniqueness: true#Added as per exercise
 
 
   def self.latest

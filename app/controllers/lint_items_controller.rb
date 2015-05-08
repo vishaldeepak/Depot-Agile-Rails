@@ -33,7 +33,7 @@ class LintItemsController < ApplicationController
 
     respond_to do |format|
       if @lint_item.save
-        format.html { redirect_to @lint_item.cart}#notice was removed as we did not need it 
+        format.html { redirect_to store_url}#notice was removed as we did not need it 
         format.json { render :show, status: :created, location: @lint_item }
       else
         format.html { render :new }
@@ -59,10 +59,15 @@ class LintItemsController < ApplicationController
   # DELETE /lint_items/1
   # DELETE /lint_items/1.json
   def destroy
+    @lint_item = LintItem.find(params[:id])
     @lint_item.destroy
     respond_to do |format|
-      format.html { redirect_to lint_items_url, notice: 'Lint item was successfully destroyed.' }
-      format.json { head :no_content }
+      if @lint_item.cart.lint_items.empty?
+        format.html { redirect_to store_url, notice: 'Your cart is empty' }
+      else  
+        format.html { redirect_to @lint_item.cart, notice: 'Product was successfully Removed.'}
+      end
+        format.json { head :no_content }
     end
   end
 

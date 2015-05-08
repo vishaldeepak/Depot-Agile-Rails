@@ -1,10 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  product_id: 
-  cart_id: 
+#START_HIGHLIGHT
+  product: ruby
+  cart: one
+#END_HIGHLIGHT
 
 two:
-  product_id: 
-  cart_id: 
-
+#START_HIGHLIGHT
+  product: ruby
+  cart: one
+#END_HIGHLIGHT

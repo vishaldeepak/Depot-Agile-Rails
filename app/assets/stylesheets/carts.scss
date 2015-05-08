@@ -1,7 +1,7 @@
 // Place all the styles related to the carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.carts {
+.carts, #side #cart {
   .item_price, .total_line {
     text-align: right;
   }
@@ -9,4 +9,40 @@
     font-weight: bold;
     border-top: 1px solid #595;
   }
+
+  
+
+   .buttonRemove{
+    padding: 5px 10px 5px 10px;
+    background: #66C1E4;
+    border: none;
+    color: #FFF;
+    box-shadow: 1px 1px 1px #4C6E91;
+    -webkit-box-shadow: 1px 1px 1px #4C6E91;
+    -moz-box-shadow: 1px 1px 1px #4C6E91;
+    text-shadow: 1px 1px 1px #5079A3; 
+}
+
+.buttonRemove:hover{
+    background: #3EB1DD;
+}
+
+.buttonEmpty {
+    background-color: #FE2E2E;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-border-radius: 5px;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #949494;
+    
+    margin-top: 25px;
+}
+
+  .buttonEmpty:hover {
+    background-color:#FF0000;
+}
+
+
 }
