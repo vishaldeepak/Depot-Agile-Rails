@@ -28,7 +28,7 @@ class LintItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @lint_item = @cart.add_product(product.id)
-    session[:counter]=0
+    #session[:counter]=0
 
 
     respond_to do |format|
