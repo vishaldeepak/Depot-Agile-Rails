@@ -1,4 +1,8 @@
+<% if lint_item == @current_item %> <!--Finding the element to be highlighted  -->
+<tr id = "current_item">
+<% else %>
 <tr>
+<% end %>
       <td><%= lint_item.quantity %>&times;</td>
       <td><%= lint_item.product.title %></td>
       <td class="item_price"><%= number_to_currency(lint_item.total_price) %>

@@ -33,6 +33,7 @@ class LintItemsController < ApplicationController
 
     respond_to do |format|
       if @lint_item.save
+        format.js   { @current_item = @lint_item }
         format.html { redirect_to store_url}#notice was removed as we did not need it 
         format.json { render :show, status: :created, location: @lint_item }
       else
