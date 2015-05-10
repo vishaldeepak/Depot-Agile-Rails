@@ -11,7 +11,7 @@ class Cart < ActiveRecord::Base
 			current_item = lint_items.build(product_id: product_id,:price => product.price)
 		end
 
-
+		#logger.error "In here maza" 
 		current_item
 	end
 
