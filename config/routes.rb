@@ -1,5 +1,10 @@
-Rails.application.routes.draw do
-  resources :lint_items
+  Rails.application.routes.draw do
+
+  resources :lint_items do
+    member do
+      put 'decrement'
+    end
+  end
 
   resources :carts
 
