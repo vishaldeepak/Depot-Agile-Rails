@@ -1,5 +1,7 @@
   Rails.application.routes.draw do
 
+  resources :morders
+
   resources :lint_items do
     member do
       put 'decrement'

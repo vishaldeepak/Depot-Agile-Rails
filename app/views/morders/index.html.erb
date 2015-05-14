@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Morders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Pay type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @morders.each do |morder| %>
+      <tr>
+        <td><%= morder.name %></td>
+        <td><%= morder.address %></td>
+        <td><%= morder.email %></td>
+        <td><%= morder.pay_type %></td>
+        <td><%= link_to 'Show', morder %></td>
+        <td><%= link_to 'Edit', edit_morder_path(morder) %></td>
+        <td><%= link_to 'Destroy', morder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Morder', new_morder_path %>

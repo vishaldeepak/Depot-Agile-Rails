@@ -13,6 +13,8 @@
 </table>
 <!-- END_HIGHLIGHT -->
 
+<%= button_to "Checkout",new_morder_path,method: :get,class: "buttonRemove" %>
+
 <%= button_to 'Empty cart', cart, method: :delete,
 	data: { confirm: 'Are you sure?' },class: "buttonEmpty", remote: true %>
 
