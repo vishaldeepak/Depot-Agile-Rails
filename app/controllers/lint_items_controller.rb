@@ -71,6 +71,12 @@ class LintItemsController < ApplicationController
   # DELETE /lint_items/1
   # DELETE /lint_items/1.json
   def destroy
+    @lint_item.destroy
+    respond_to do |format|
+      format.html { redirect_to lint_items_url }
+      format.json { head :no_content }
+    end
+=begin
     @lint_item = LintItem.find(params[:id])
     @lint_item.destroy
     respond_to do |format|
@@ -81,6 +87,7 @@ class LintItemsController < ApplicationController
       end
         format.json { head :no_content }
       end
+=end
   end
 
   

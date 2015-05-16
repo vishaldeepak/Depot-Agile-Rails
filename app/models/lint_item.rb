@@ -4,7 +4,7 @@ class LintItem < ActiveRecord::Base
   belongs_to :morder
 
   def total_price
-  	price * quantity
+  	product.price * quantity
   end
 
   def decrement
