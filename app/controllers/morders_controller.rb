@@ -24,6 +24,7 @@ class MordersController < ApplicationController
     @morder = Morder.new
   end
 
+
   # GET /morders/1/edit
   def edit
   end
@@ -38,6 +39,7 @@ class MordersController < ApplicationController
       if @morder.save
         Cart.destroy(session[:cart_id])
         session[:cart_id]=nil
+        OrderNotifier.received(@morder).deliver #Send mail to user about purchase
         format.html { redirect_to store_url, notice: 'Thank you for Order' }
         format.json { render :show, status: :created, location: @morder }
       else

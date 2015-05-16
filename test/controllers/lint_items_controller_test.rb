@@ -21,7 +21,7 @@ class LintItemsControllerTest < ActionController::TestCase
       post :create, product_id: products(:ruby).id
     end
 
-    assert_redirected_to cart_path(assigns(:lint_item).cart)
+    assert_redirected_to store_path
   end
 
   test "should show lint_item" do
