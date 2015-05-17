@@ -7,7 +7,7 @@
       <td><%= lint_item.product.title %></td>
       <td class="item_price"><%= number_to_currency(lint_item.total_price) %></td>
       <td>
-      	<%= button_to 'X', decrement_lint_item_path(lint_item),method: :put,remote: true,class: "buttonRemove" %>
+      	<%= button_to 'X', decrement_lint_item_url(lint_item),method: :put,remote: true,class: "buttonRemove" %>
       </td>
 
       

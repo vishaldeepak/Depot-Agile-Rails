@@ -39,7 +39,7 @@ class MordersController < ApplicationController
       if @morder.save
         Cart.destroy(session[:cart_id])
         session[:cart_id]=nil
-        OrderNotifier.received(@morder).deliver #Send mail to user about purchase
+        OrderNotifier.received(@morder).deliver_now #Send mail to user about purchase
         format.html { redirect_to store_url, notice: 'Thank you for Order' }
         format.json { render :show, status: :created, location: @morder }
       else
