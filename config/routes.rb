@@ -1,5 +1,7 @@
   Rails.application.routes.draw do
 
+  resources :users
+
   resources :morders
 
   resources :lint_items do

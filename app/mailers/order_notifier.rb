@@ -7,7 +7,6 @@ class OrderNotifier < ApplicationMailer
   #
   def received(morder)
     @morder = morder
-
     mail to: morder.email, subject: "Pragmatic Store Order Confirmation"
   end
 
@@ -16,7 +15,7 @@ class OrderNotifier < ApplicationMailer
   #
   #   en.order_notifier.shipped.subject
   #
-  def shipped
+  def shipped(morder)
     @morder = morder
 
     mail to: morder.email, subject: "Pragmatic Store Order Shipped"
