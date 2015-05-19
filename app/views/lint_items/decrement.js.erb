@@ -3,3 +3,8 @@ $('#cart').html("<%=escape_javascript render @cart %>");
 
 $('#current_item').css({'background-color':'#FA5858'}).
   animate({'background-color':'#CEF6EC'}, 1000);
+
+  if ($('#cart tr').length==1) {
+    // Hide the cart
+    $('#cart').hide('blind', 1000);    
+}

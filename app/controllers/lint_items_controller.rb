@@ -2,7 +2,7 @@ class LintItemsController < ApplicationController
   include CurrentCart
   before_action :set_lint_item, only: [:show, :edit, :update, :destroy, :decrement]
   before_action :set_cart, only: [:create, :decrement]
-  skip_before_action :authorize, only: :create
+  skip_before_action :authorize, only: [:create, :decrement]
   # GET /lint_items
   # GET /lint_items.json
   def index
