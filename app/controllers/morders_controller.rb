@@ -2,7 +2,7 @@ class MordersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :set_morder, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authorize, only: [:new,:create]
   # GET /morders
   # GET /morders.json
   def index
