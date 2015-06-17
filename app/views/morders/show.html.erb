@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @morder.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @morder.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @morder.email %>
+</p>
+
+<p>
+  <strong>Pay type:</strong>
+  <%= @morder.pay_type %>
+</p>
+
+<%= link_to 'Edit', edit_morder_path(@morder) %> |
+<%= link_to 'Back', morders_path %>

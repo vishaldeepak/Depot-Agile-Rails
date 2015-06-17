@@ -10,23 +10,32 @@
     border-top: 1px solid #595;
   }
 
+  td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
   
 
-   .buttonRemove{
-    padding: 5px 10px 5px 10px;
+.buttonRemove{
+    padding: 3px 3px 4px 5px;
     background: #66C1E4;
     border: none;
     color: #FFF;
     box-shadow: 1px 1px 1px #4C6E91;
     -webkit-box-shadow: 1px 1px 1px #4C6E91;
     -moz-box-shadow: 1px 1px 1px #4C6E91;
+    color: red;
     text-shadow: 1px 1px 1px #5079A3; 
+    text-align: center;
 }
 
 .buttonRemove:hover{
     background: #3EB1DD;
 }
 
+
+   
 .buttonEmpty {
     background-color: #FE2E2E;
     border-radius: 5px;

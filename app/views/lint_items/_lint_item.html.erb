@@ -5,8 +5,13 @@
 <% end %>
       <td><%= lint_item.quantity %>&times;</td>
       <td><%= lint_item.product.title %></td>
-      <td class="item_price"><%= number_to_currency(lint_item.total_price) %>
+      <td class="item_price"><%= number_to_currency(lint_item.total_price) %></td>
+      <td>
+      	<%= button_to 'X', decrement_lint_item_url(lint_item),method: :put,remote: true,class: "buttonRemove" %>
       </td>
+
+      
+
       <!--We have also changed to lint_item which works thankx to rails magic -->
 </tr>
 

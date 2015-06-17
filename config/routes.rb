@@ -1,5 +1,28 @@
-Rails.application.routes.draw do
-  resources :lint_items
+  Rails.application.routes.draw do
+
+  get 'admin' =>'admin#index'
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
+  get 'sessions/new' # Harmful as provided by default and not necessary
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  resources :users
+
+  resources :morders
+
+  resources :lint_items do
+    member do
+      put 'decrement'
+    end
+  end
 
   resources :carts
 

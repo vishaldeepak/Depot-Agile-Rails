@@ -19,5 +19,13 @@ class Cart < ActiveRecord::Base
 		lint_items.to_a.sum { |item| item.total_price}
 	end
 
+	def decrease_product(product_id)
+		current_item = lint_items.find_by(product_id: product_id)#find using the argument product_id using 
+										# The one given as argument
+		current_item.quantity -= 1
+		
+		current_item								
+	end
+
 
 end

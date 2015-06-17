@@ -1,12 +1,23 @@
 class LintItemsController < ApplicationController
   include CurrentCart
-  before_action :set_lint_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_cart, only: [:create]
-
+  before_action :set_lint_item, only: [:show, :edit, :update, :destroy, :decrement]
+  before_action :set_cart, only: [:create, :decrement]
+  skip_before_action :authorize, only: [:create, :decrement]
   # GET /lint_items
   # GET /lint_items.json
   def index
     @lint_items = LintItem.all
+  end
+
+
+  def decrement # To decrement , created a route 
+    @lint_item = @lint_item.decrement  
+    respond_to do |format|
+      if @lint_item.save
+        format.html { redirect_to store_url}
+        format.js {@current_item = @lint_item}
+      end
+    end
   end
 
   # GET /lint_items/1
@@ -60,6 +71,12 @@ class LintItemsController < ApplicationController
   # DELETE /lint_items/1
   # DELETE /lint_items/1.json
   def destroy
+    @lint_item.destroy
+    respond_to do |format|
+      format.html { redirect_to lint_items_url }
+      format.json { head :no_content }
+    end
+=begin
     @lint_item = LintItem.find(params[:id])
     @lint_item.destroy
     respond_to do |format|
@@ -69,8 +86,11 @@ class LintItemsController < ApplicationController
         format.html { redirect_to @lint_item.cart, notice: 'Product was successfully Removed.'}
       end
         format.json { head :no_content }
-    end
+      end
+=end
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
